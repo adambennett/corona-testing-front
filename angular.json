@@ -33,10 +33,7 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [
-              "node_modules/country-state-picker/lib/data/countries.ts",
-              "node_modules/country-state-picker/lib/data/states.ts"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

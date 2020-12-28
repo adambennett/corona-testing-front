@@ -7,9 +7,7 @@
   },
   "files": [
     "src/main.ts",
-    "src/polyfills.ts",
-    "../corona-testing-front/node_modules/country-state-picker/lib/data/countries.ts",
-    "../corona-testing-front/node_modules/country-state-picker/lib/data/states.ts"
+    "src/polyfills.ts"
   ],
   "include": [
     "src/**/*.d.ts"

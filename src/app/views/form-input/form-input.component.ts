@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {ConnectorService} from '../../services/connector/connector.service';
 import {Patient} from "../../models/Patient";
-import {getCountries, getStates} from "country-state-picker";
 import {Country} from "../../models/Country";
 import scus from 'state-counties-us';
 import {State} from "../../models/State";
-import {Route, Router} from "@angular/router";
+import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {AlertHelper, Util} from "../../util/Utilities";
+import {getCountries, getStates} from '../../util/Locations';
 
 @Component({
   selector: 'app-form-input',
