@@ -8,7 +8,7 @@ import {Patient} from "../../models/Patient";
 })
 export class ConnectorService {
 
-  public API = 'http://example-patient-form-server.herokuapp.com/';
+  public API = 'https://example-patient-form-server.herokuapp.com/';
   public readonly PATIENTS_ENDPOINT = 'patients/';
 
   constructor(public http: HttpClient) {}
