@@ -1,0 +1,17 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": []
+  },
+  "files": [
+    "src/main.ts",
+    "src/polyfills.ts",
+    "../corona-testing-front/node_modules/country-state-picker/lib/data/countries.ts",
+    "../corona-testing-front/node_modules/country-state-picker/lib/data/states.ts"
+  ],
+  "include": [
+    "src/**/*.d.ts"
+  ]
+}

@@ -1,0 +1,195 @@
+<div class="flex-container">
+  <div class="form_container">
+    <form name="form">
+
+      <!-- Title -->
+      <h3 class="text-center display-4">Patient Information</h3>
+
+
+      <!-- Contact Information -->
+      <div id="contact-block" class="input-block">
+        <h5>Contact Info</h5>
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" class="form-control rounded-pill" [(ngModel)]="patient.name"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="cell_number">Cell Number</label>
+            <input type="text" id="cell_number" name="cell_number" class="form-control rounded-pill" [(ngModel)]="patient.cell_number"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control rounded-pill" [(ngModel)]="patient.email"/>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Address Information -->
+      <div id="address-block" class="input-block">
+        <h5>Home Address</h5>
+        <div class="row">
+          <div class="col-sm-8">
+            <label for="address">Street</label>
+            <input type="text" id="address" name="address" class="form-control rounded-pill" [(ngModel)]="patient.address"/>
+          </div>
+
+          <div class="col-sm-4">
+            <label for="city">City</label>
+            <input type="text" id="city" name="city" class="form-control rounded-pill" [(ngModel)]="patient.city"/>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="state">State</label>
+            <mat-select name="state" id="state" (valueChange)="stateSelected($event)" [(ngModel)]="patient.state" class="form-control rounded-pill">
+              <mat-option *ngFor="let state of stateNames" [value]="state" class="text-danger">
+                {{this.state}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="col-sm-4">
+            <label for="zipcode">Zip Code</label>
+            <input type="text" id="zipcode" name="zipcode" class="form-control rounded-pill" [(ngModel)]="patient.zipcode"/>
+          </div>
+
+          <div class="col-sm-4">
+            <label for="county">County</label>
+            <mat-select name="county" id="county" [(ngModel)]="patient.county" class="form-control rounded-pill">
+              <mat-option *ngFor="let county of counties" [value]="county" class="text-danger">
+                {{this.county}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Personal Information -->
+      <div id="personal-block" class="input-block">
+        <h5>Personal Information</h5>
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="race">Race</label>
+            <mat-select name="race" id="race" [(ngModel)]="patient.race" panelClass="maxHeight"  class="form-control rounded-pill">
+              <mat-option *ngFor="let race of races" [value]="race">
+                {{this.race}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="col-sm-4">
+            <label for="gender">Gender</label>
+            <mat-select [(ngModel)]="patient.gender" panelClass="maxHeight" name="gender" id="gender" class="form-control rounded-pill">
+              <mat-option *ngFor="let gender of genders" [value]="gender">
+                {{gender}}
+              </mat-option>
+            </mat-select>
+          </div>
+          <div class="col-sm-4">
+            <label for="ethnicity">Ethnicity</label>
+            <mat-select [(ngModel)]="patient.ethnicity" panelClass="maxHeight" name="ethnicity" id="ethnicity" class="form-control rounded-pill">
+              <mat-option *ngFor="let ethnicity of ethnicities" [value]="ethnicity">
+                {{ethnicity}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="birthday-picker">Birthday</label><br>
+            <input matInput required id="birthday-picker" name="birthday-picker" [(ngModel)]="patient.birthday" [max]="maxDate" [matDatepicker]="picker" class="form-control rounded-pill">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </div>
+          <div class="col-sm-4">
+            <label for="social">Social Security Number</label>
+            <input type="text" id="social" name="social" class="form-control rounded-pill" [(ngModel)]="patient.social_security"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="time">Appointment Time</label>
+            <mat-select name="time" id="time" [(ngModel)]="patient.appointment_time" class="form-control rounded-pill">
+              <mat-option *ngFor="let time of appointmentTimes" [value]="time" class="text-danger">
+                {{this.time}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Insurance Information -->
+      <div id="insurance-block" class="input-block">
+        <h5>Insurance Information</h5>
+        <div class="row">
+          <div class="col-sm-4">
+            <label for="patient-id">Patient ID</label>
+            <input type="text" id="patient-id" name="patient-id" class="form-control rounded-pill" [(ngModel)]="patient.insurance_patient_id"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="group-id">Group ID</label>
+            <input type="text" id="group-id" name="group-id" class="form-control rounded-pill" [(ngModel)]="patient.insurance_group_id"/>
+          </div>
+          <div class="col-sm-4">
+            <label for="insured">Insured</label>
+            <mat-select name="insured" id="insured" [(ngModel)]="patient.insured" class="form-control rounded-pill">
+              <mat-option *ngFor="let insured of insuredOptions" [value]="insured" class="text-danger">
+                {{this.insured}}
+              </mat-option>
+            </mat-select>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Exposure & Symptom Information -->
+      <div id="exposure-block" class="input-block">
+        <div class="row">
+          <div class="col-sm-5">
+            <h5>Symptoms</h5>
+            <div class="row">
+              <div class="col-sm-4">
+                <label for="persistent-cough" style="margin-right: 10px">Persistent Cough</label>
+                <input type="checkbox" id="persistent-cough" name="persistent-cough" (click)="setCough()">
+                <br>
+                <label for="breath-shortness" style="margin-right: 10px">Shortness of Breath</label>
+                <input type="checkbox" id="breath-shortness" name="breath-shortness" (click)="setShortness()">
+                <br>
+                <label for="fever" style="margin-right: 10px">Fever</label>
+                <input type="checkbox" id="fever" name="fever" (click)="setFever()">
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-8">
+            <h5>Exposure</h5>
+            <div class="row">
+              <div class="col-sm-8">
+                <label for="sure-exposure" style="margin-right: 10px">Have you been in contact with anyone you know is COVID-19 positive</label>
+                <input type="checkbox" id="sure-exposure" name="sure-exposure" (click)="setExposed()">
+                <br>
+                <label for="suspected-exposure" style="margin-right: 10px">Have you been in contact with anyone you SUSPECT is COVID-19 positive</label>
+                <input type="checkbox" id="suspected-exposure" name="suspected-exposure" (click)="setSuspectedExposure()">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Submit Button -->
+      <div id="submit-block">
+        <div id="submit-button" class="d-flex justify-content-center">
+          <div class="d-flex justify-content-center">
+            <button type="submit" (click)="createPatient(patient)" class="btn btn-lg btn-success rounded-pill create-button">
+              <i class="fa fa-plus-circle fa-3x">Submit</i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
